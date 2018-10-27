@@ -1,5 +1,9 @@
-#ifndef FIXEDPOINT_FIXED16_HPP_
-#define FIXEDPOINT_FIXED16_HPP_
+/**
+ * @file fixed16.hpp
+ */
+
+#ifndef FIXED_FIXED16_HPP_
+#define FIXED_FIXED16_HPP_
 
 #include "fixed16.h"
 
@@ -9,9 +13,10 @@ typedef
         FixedPoint
         <
         fixed16_t,
+        fixed16_abs,
         fixed16_mul,
         fixed16_to_double,
         double_to_fixed16
         > Fixed16;
 
-#endif /* FIXEDPOINT_FIXED16_HPP_ */
+#endif /* FIXED_FIXED16_HPP_ */
