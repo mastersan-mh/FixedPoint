@@ -9,12 +9,12 @@ This library is mainly intended for use on controllers, such as atmega, since fl
 
 ## Supported programming languages and standards ##
 * C:
-  * C90 - not supported, because "inline"...
+  * C90 - yes
   * C99 - yes
   * C11 - yes
 
 * C ++:
-  * C ++ 98 - not supported, because move-semantic...
+  * C ++ 98 - yes
   * C ++ 11 - yes
   * C ++ 1y - yes
 
@@ -29,6 +29,7 @@ This library is mainly intended for use on controllers, such as atmega, since fl
   C++ only. For C, use the normal '-' operator
      
 * Multiplication
+* Division
 * Conversion double -> fixed
 * Conversion fixed -> double
 
@@ -46,12 +47,12 @@ Use it for your fun!
 
 ## Поддерживаемые языки программирования и стандарты ##
 * C:
-  * С90 - не поддерживается, потому что "inline"...
+  * С90 - да
   * С99 - да
   * С11 - да
 
 * C++:
-  * С++98 - не поддерживается, потому что move-semantic...
+  * С++98 - да
   * С++11 - да
   * С++1y - да
 
@@ -66,5 +67,7 @@ Use it for your fun!
   Только C++. Для C используйте обычный оператор '-'
     
 * Умножение
+* Деление
 * Преобразование double -> fixed
 * Преобразование fixed -> double
+

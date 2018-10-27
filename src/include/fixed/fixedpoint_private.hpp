@@ -1,8 +1,15 @@
-#ifndef FIXEDPOINT_FIXEDPOINT_PRIVATE_HPP_
-#define FIXEDPOINT_FIXEDPOINT_PRIVATE_HPP_
+/**
+ * fixedpoint_private.hpp
+ */
+
+#ifndef FIXED_FIXEDPOINT_PRIVATE_HPP_
+#define FIXED_FIXEDPOINT_PRIVATE_HPP_
+
+#include "fixedpoint_common.h"
 
 template <
         typename fixed_t,
+        fixed_t (*fixed_abs)(fixed_t),
         fixed_t (*fixed_mul)(fixed_t, fixed_t),
         double (*fixed_to_double)(fixed_t),
         fixed_t (*double_to_fixed)(double)
@@ -16,10 +23,6 @@ public:
     }
 
     FIXEDPOINT_INLINE FixedPoint(const FixedPoint & other_) : value(other_.value)
-    {
-    }
-
-    FIXEDPOINT_INLINE FixedPoint(FixedPoint && other_) : value(other_.value)
     {
     }
 
@@ -39,101 +42,121 @@ public:
         return *this;
     }
 
-    FIXEDPOINT_INLINE const FixedPoint& operator-()
+    FIXEDPOINT_INLINE const FixedPoint operator-() const
     {
-        value = -value;
-        return *this;
+        return FixedPoint(-value);
     }
 
     /* operators: binary */
-    FIXEDPOINT_INLINE FixedPoint& operator=(const FixedPoint& right)
+    FIXEDPOINT_INLINE FixedPoint& operator=(const FixedPoint& right_)
     {
-        value = right.value;
+        value = right_.value;
         return *this;
     }
 
-    FIXEDPOINT_INLINE FixedPoint& operator=(fixed_t right)
+    FIXEDPOINT_INLINE FixedPoint& operator=(fixed_t right_)
     {
-        value = right;
+        value = right_;
         return *this;
     }
 
-    FIXEDPOINT_INLINE FixedPoint& operator=(double right)
+    FIXEDPOINT_INLINE FixedPoint& operator=(double right_)
     {
-        value = double_to_fixed(right);
+        value = double_to_fixed(right_);
         return *this;
     }
 
-    FIXEDPOINT_INLINE FixedPoint operator+(const FixedPoint& right) const
+    FIXEDPOINT_INLINE FixedPoint operator+(const FixedPoint& right_) const
     {
-        return FixedPoint(value + right.value);
+        return FixedPoint(value + right_.value);
     }
 
-    FIXEDPOINT_INLINE FixedPoint operator-(const FixedPoint& right) const
+    FIXEDPOINT_INLINE FixedPoint operator-(const FixedPoint& right_) const
     {
-        return FixedPoint(value - right.value);
+        return FixedPoint(value - right_.value);
     }
 
-    FIXEDPOINT_INLINE FixedPoint operator*(const FixedPoint& right)
+    FIXEDPOINT_INLINE FixedPoint operator*(const FixedPoint& right_) const
     {
-        return FixedPoint(fixed_mul(value, right.value));
+        return FixedPoint(fixed_mul(value, right_.value));
     }
 
-    FIXEDPOINT_INLINE FixedPoint& operator+=(const FixedPoint& right)
+    FIXEDPOINT_INLINE FixedPoint& operator+=(const FixedPoint& right_)
     {
-        value += right.value;
+        value += right_.value;
         return *this;
     }
 
-    FIXEDPOINT_INLINE FixedPoint& operator-=(const FixedPoint& right)
+    FIXEDPOINT_INLINE FixedPoint& operator-=(const FixedPoint& right_)
     {
-        value -= right.value;
+        value -= right_.value;
         return *this;
     }
 
-    FIXEDPOINT_INLINE FixedPoint& operator*=(const FixedPoint& right)
+    FIXEDPOINT_INLINE FixedPoint& operator*=(const FixedPoint& right_)
     {
-        value = fixed_mul(value, right.value);
+        value = fixed_mul(value, right_.value);
         return *this;
     }
 
-    FIXEDPOINT_INLINE bool operator==(const FixedPoint& right)
+    FIXEDPOINT_INLINE bool operator==(const FixedPoint& right_)
     {
-        return value == right.value;
+        return value == right_.value;
     }
 
-    FIXEDPOINT_INLINE bool operator!=(const FixedPoint& right)
+    FIXEDPOINT_INLINE bool operator!=(const FixedPoint& right_) const
     {
-        return value != right.value;
+        return value != right_.value;
     }
 
-    FIXEDPOINT_INLINE bool operator>=(const FixedPoint& right)
+    FIXEDPOINT_INLINE bool operator>=(const FixedPoint& right_) const
     {
-        return value >= right.value;
+        return value >= right_.value;
     }
 
-    FIXEDPOINT_INLINE bool operator<=(const FixedPoint& right)
+    FIXEDPOINT_INLINE bool operator<=(const FixedPoint& right_) const
     {
-        return value <= right.value;
+        return value <= right_.value;
     }
 
-    FIXEDPOINT_INLINE bool operator>(const FixedPoint& right)
+    FIXEDPOINT_INLINE bool operator>(const FixedPoint& right_) const
     {
-        return value > right.value;
+        return value > right_.value;
     }
 
-    FIXEDPOINT_INLINE bool operator<(const FixedPoint& right)
+    FIXEDPOINT_INLINE bool operator<(const FixedPoint& right_) const
     {
-        return value < right.value;
+        return value < right_.value;
     }
 
     /* methods */
-    FIXEDPOINT_INLINE fixed_t toRawFixed()
+    FIXEDPOINT_INLINE FixedPoint abs() const
+    {
+        return FixedPoint(fixed_abs(value));
+    }
+
+    FIXEDPOINT_INLINE void set(const FixedPoint & other_)
+    {
+        value = other_.value;
+    }
+
+    FIXEDPOINT_INLINE void set(fixed_t val_)
+    {
+        value = val_;
+    }
+
+    FIXEDPOINT_INLINE void set(double val_)
+    {
+        value = double_to_fixed(val_);
+    }
+
+
+    FIXEDPOINT_INLINE fixed_t toRawFixed() const
     {
         return value;
     }
 
-    FIXEDPOINT_INLINE double toDouble()
+    FIXEDPOINT_INLINE double toDouble() const
     {
         return fixed_to_double(value);
     }
@@ -142,4 +165,4 @@ private:
     fixed_t value;
 };
 
-#endif /* FIXEDPOINT_FIXEDPOINT_PRIVATE_HPP_ */
+#endif /* FIXED_FIXEDPOINT_PRIVATE_HPP_ */
