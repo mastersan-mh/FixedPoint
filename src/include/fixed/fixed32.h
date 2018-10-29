@@ -35,6 +35,11 @@ FIXEDPOINT_INLINE fixed32_t fixed32_div(fixed32_t a, fixed32_t b)
   return (fixed32_t)( ((int64_t)a << FIXED32_FRACBITS) / b );
 }
 
+FIXEDPOINT_INLINE fixed32_t int_to_fixed32(int val)
+{
+    return ((int64_t)val << FIXED32_FRACBITS);
+}
+
 FIXEDPOINT_INLINE fixed32_t double_to_fixed32(double val)
 {
     return (val * FIXED32_FRACUNIT);

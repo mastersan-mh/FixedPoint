@@ -11,6 +11,8 @@ template <
         typename fixed_t,
         fixed_t (*fixed_abs)(fixed_t),
         fixed_t (*fixed_mul)(fixed_t, fixed_t),
+        fixed_t (*fixed_div)(fixed_t, fixed_t),
+        fixed_t (*int_to_fixed)(int val),
         double (*fixed_to_double)(fixed_t),
         fixed_t (*double_to_fixed)(double)
         >
@@ -66,6 +68,7 @@ public:
         return *this;
     }
 
+    /* <FixedPoint> <op> <FixedPoint> */
     FIXEDPOINT_INLINE FixedPoint operator+(const FixedPoint& right_) const
     {
         return FixedPoint(value + right_.value);
@@ -81,6 +84,12 @@ public:
         return FixedPoint(fixed_mul(value, right_.value));
     }
 
+    FIXEDPOINT_INLINE FixedPoint operator/(const FixedPoint& right_) const
+    {
+        return FixedPoint(fixed_div(value, right_.value));
+    }
+
+    /* <FixedPoint> <op>= <FixedPoint> */
     FIXEDPOINT_INLINE FixedPoint& operator+=(const FixedPoint& right_)
     {
         value += right_.value;
@@ -99,6 +108,13 @@ public:
         return *this;
     }
 
+    FIXEDPOINT_INLINE FixedPoint& operator/=(const FixedPoint& right_)
+    {
+        value = fixed_div(value, right_.value);
+        return *this;
+    }
+
+    /* <FixedPoint> <eq-op> <FixedPoint> */
     FIXEDPOINT_INLINE bool operator==(const FixedPoint& right_)
     {
         return value == right_.value;
@@ -130,9 +146,9 @@ public:
     }
 
     /* methods */
-    FIXEDPOINT_INLINE FixedPoint abs() const
+    FIXEDPOINT_INLINE void setRawFixed(fixed_t val_)
     {
-        return FixedPoint(fixed_abs(value));
+        value = val_;
     }
 
     FIXEDPOINT_INLINE void set(const FixedPoint & other_)
@@ -140,16 +156,15 @@ public:
         value = other_.value;
     }
 
-    FIXEDPOINT_INLINE void set(fixed_t val_)
-    {
-        value = val_;
-    }
-
     FIXEDPOINT_INLINE void set(double val_)
     {
         value = double_to_fixed(val_);
     }
 
+    FIXEDPOINT_INLINE void set(int val_)
+    {
+        value = int_to_fixed(val_);
+    }
 
     FIXEDPOINT_INLINE fixed_t toRawFixed() const
     {
@@ -159,6 +174,11 @@ public:
     FIXEDPOINT_INLINE double toDouble() const
     {
         return fixed_to_double(value);
+    }
+
+    FIXEDPOINT_INLINE FixedPoint toAbs() const
+    {
+        return FixedPoint(fixed_abs(value));
     }
 
 private:
