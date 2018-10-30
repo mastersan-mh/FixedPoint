@@ -19,33 +19,33 @@ extern "C"
 
 typedef int16_t fixed16_t;
 
-FIXEDPOINT_INLINE fixed16_t fixed16_abs(fixed16_t x)
+static FIXEDPOINT_INLINE fixed16_t fixed16_abs(fixed16_t x)
 {
     fixed16_t sign = x >> (FIXED16_BITS - 1);
     return (x ^ sign) - sign;
 }
 
-FIXEDPOINT_INLINE fixed16_t fixed16_mul(fixed16_t a, fixed16_t b)
+static FIXEDPOINT_INLINE fixed16_t fixed16_mul(fixed16_t a, fixed16_t b)
 {
   return (fixed16_t)((int32_t)a * b >> FIXED16_FRACBITS);
 }
 
-FIXEDPOINT_INLINE fixed16_t fixed16_div(fixed16_t a, fixed16_t b)
+static FIXEDPOINT_INLINE fixed16_t fixed16_div(fixed16_t a, fixed16_t b)
 {
   return (fixed16_t)( ((int32_t)a << FIXED16_FRACBITS) / b );
 }
 
-FIXEDPOINT_INLINE fixed16_t int_to_fixed16(int val)
+static FIXEDPOINT_INLINE fixed16_t int_to_fixed16(int val)
 {
     return ((int32_t)val << FIXED16_FRACBITS);
 }
 
-FIXEDPOINT_INLINE fixed16_t double_to_fixed16(double val)
+static FIXEDPOINT_INLINE fixed16_t double_to_fixed16(double val)
 {
     return (val * FIXED16_FRACUNIT);
 }
 
-FIXEDPOINT_INLINE double fixed16_to_double(fixed16_t val)
+static FIXEDPOINT_INLINE double fixed16_to_double(fixed16_t val)
 {
     return ((double)val / FIXED16_FRACUNIT);
 }
