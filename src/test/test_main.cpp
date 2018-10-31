@@ -25,7 +25,9 @@ int main()
 
     test_Fixed16_abs();
     test_Fixed16_mul();
+    test_Fixed16_mul_self();
     test_Fixed16_div();
+    test_Fixed16_div_self();
     test_int_to_Fixed16();
     test_double_to_Fixed16();
     test_Fixed16_to_double();
@@ -39,7 +41,9 @@ int main()
 
     test_Fixed32_abs();
     test_Fixed32_mul();
+    test_Fixed32_mul_self();
     test_Fixed32_div();
+    test_Fixed32_div_self();
     test_int_to_Fixed32();
     test_double_to_Fixed32();
     test_Fixed32_to_double();

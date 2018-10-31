@@ -7,7 +7,9 @@
 
 void test_Fixed32_abs();
 void test_Fixed32_mul();
+void test_Fixed32_mul_self();
 void test_Fixed32_div();
+void test_Fixed32_div_self();
 void test_int_to_Fixed32();
 void test_double_to_Fixed32();
 void test_Fixed32_to_double();

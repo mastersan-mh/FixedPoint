@@ -16,8 +16,8 @@
 
 #define TEST_ASSERT(cond) \
         do{ \
-            if(cond){ INFO ("[  OK   ] TEST_ASSERT: Test #%lu in %s on line %d PASSED!", (unsigned long)itest, __FILE__, __LINE__); } \
-            else    { ERROR("[ ERROR ] TEST_ASSERT: Test #%lu invalid status in %s on line %d", (unsigned long)itest, __FILE__, __LINE__); exit(EXIT_FAILURE);} \
+            if(cond){ INFO ("[  OK   ] Test #%lu in %s on line %d PASSED!", (unsigned long)itest, __FILE__, __LINE__); } \
+            else    { ERROR("[ ERROR ] Test #%lu invalid status in %s on line %d", (unsigned long)itest, __FILE__, __LINE__); exit(EXIT_FAILURE);} \
             ++itest; \
         }while(0)
 

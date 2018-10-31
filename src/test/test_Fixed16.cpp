@@ -85,6 +85,53 @@ void test_Fixed16_mul()
 
 }
 
+void test_Fixed16_mul_self()
+{
+    Fixed16 inout1;
+    Fixed16 in2;
+
+    inout1.setRawFixed(0);
+    in2.setRawFixed(0);
+    inout1 *= in2;
+    TEST_ASSERT(inout1.toRawFixed() == 0);
+
+    inout1.setRawFixed(0x0000);
+    in2.setRawFixed(0x0100);
+    inout1 *= in2;
+    TEST_ASSERT(inout1.toRawFixed() == 0x0000);
+
+    inout1.setRawFixed(0x0100);
+    in2.setRawFixed(0x0100);
+    inout1 *= in2;
+    TEST_ASSERT(inout1.toRawFixed() == 0x0100);
+
+    inout1.setRawFixed(0x0001);
+    in2.setRawFixed(0x0100);
+    inout1 *= in2;
+    TEST_ASSERT(inout1.toRawFixed() == 0x0001);
+
+    inout1.setRawFixed(0xFF00);
+    in2.setRawFixed(0x0100);
+    inout1 *= in2;
+    TEST_ASSERT(inout1.toRawFixed() == (fixed16_t)0xFF00);
+
+    inout1.setRawFixed(0x0001);
+    in2.setRawFixed(0x0001);
+    inout1 *= in2;
+    TEST_ASSERT(inout1.toRawFixed() == 0x0000);
+
+    inout1.setRawFixed(0x00FF);
+    in2.setRawFixed(0x00FF);
+    inout1 *= in2;
+    TEST_ASSERT(inout1.toRawFixed() == 0x00FE);
+
+    inout1.setRawFixed(0xFF00);
+    in2.setRawFixed(0xFF00);
+    inout1 *= in2;
+    TEST_ASSERT(inout1.toRawFixed() == 0x0100); /* overflow */
+
+}
+
 void test_Fixed16_div()
 {
     Fixed16 in1;
@@ -130,6 +177,53 @@ void test_Fixed16_div()
     in2.setRawFixed(0x0080);
     out1 = in1 / in2;
     TEST_ASSERT(out1.toRawFixed() == (fixed16_t)0xfe00); /* overflow */
+
+}
+
+void test_Fixed16_div_self()
+{
+    Fixed16 inout1;
+    Fixed16 in1;
+
+    inout1.setRawFixed(0x0000);
+    in1.setRawFixed(0x0100);
+    inout1 /= in1;
+    TEST_ASSERT(inout1.toRawFixed() == 0x0000);
+
+    inout1.setRawFixed(0x0100);
+    in1.setRawFixed(0x0100);
+    inout1 /= in1;
+    TEST_ASSERT(inout1.toRawFixed() == 0x0100);
+
+    inout1.setRawFixed(0xFF00);
+    in1.setRawFixed(0x0100);
+    inout1 /= in1;
+    TEST_ASSERT(inout1.toRawFixed() == (fixed16_t)0xFF00);
+
+    inout1.setRawFixed(0x0400);
+    in1.setRawFixed(0x0200);
+    inout1 /= in1;
+    TEST_ASSERT(inout1.toRawFixed() == 0x0200);
+
+    inout1.setRawFixed(0x0001);
+    in1.setRawFixed(0x0100);
+    inout1 /= in1;
+    TEST_ASSERT(inout1.toRawFixed() == 0x0001);
+
+    inout1.setRawFixed(0x0004);
+    in1.setRawFixed(0x0200);
+    inout1 /= in1;
+    TEST_ASSERT(inout1.toRawFixed() == 0x0002);
+
+    inout1.setRawFixed(0x0100);
+    in1.setRawFixed(0x0080);
+    inout1 /= in1;
+    TEST_ASSERT(inout1.toRawFixed() == 0x0200);
+
+    inout1.setRawFixed(0x7F00);
+    in1.setRawFixed(0x0080);
+    inout1 /= in1;
+    TEST_ASSERT(inout1.toRawFixed() == (fixed16_t)0xfe00); /* overflow */
 
 }
 

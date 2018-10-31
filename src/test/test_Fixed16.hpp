@@ -7,7 +7,9 @@
 
 void test_Fixed16_abs();
 void test_Fixed16_mul();
+void test_Fixed16_mul_self();
 void test_Fixed16_div();
+void test_Fixed16_div_self();
 void test_int_to_Fixed16();
 void test_double_to_Fixed16();
 void test_Fixed16_to_double();
