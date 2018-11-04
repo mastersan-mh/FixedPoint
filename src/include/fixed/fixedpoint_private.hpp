@@ -8,13 +8,9 @@
 #include "fixedpoint_common.h"
 
 template <
-        typename fixed_t,
-        fixed_t (*fixed_abs)(fixed_t),
-        fixed_t (*fixed_mul)(fixed_t, fixed_t),
-        fixed_t (*fixed_div)(fixed_t, fixed_t),
-        fixed_t (*int_to_fixed)(int val),
-        double (*fixed_to_double)(fixed_t),
-        fixed_t (*double_to_fixed)(double)
+        typename Tfixed_t,
+        unsigned char Tfracbits,
+        typename Tenclosingtype_t
         >
 class FixedPoint
 {
@@ -28,11 +24,11 @@ public:
     {
     }
 
-    FIXEDPOINT_INLINE explicit FixedPoint(fixed_t val_): value(val_)
+    FIXEDPOINT_INLINE explicit FixedPoint(Tfixed_t val_): value(val_)
     {
     }
 
-    FIXEDPOINT_INLINE explicit FixedPoint(double val_): value(double_to_fixed(val_))
+    FIXEDPOINT_INLINE explicit FixedPoint(double val_): value(DOUBLE_TO_FIXED(Tfixed_t, Tfracbits, val_))
     {
     }
 
@@ -56,7 +52,7 @@ public:
         return *this;
     }
 
-    FIXEDPOINT_INLINE FixedPoint& operator=(fixed_t right_)
+    FIXEDPOINT_INLINE FixedPoint& operator=(Tfixed_t right_)
     {
         value = right_;
         return *this;
@@ -64,7 +60,7 @@ public:
 
     FIXEDPOINT_INLINE FixedPoint& operator=(double right_)
     {
-        value = double_to_fixed(right_);
+        value = DOUBLE_TO_FIXED(Tfixed_t, Tfracbits, right_);
         return *this;
     }
 
@@ -81,12 +77,12 @@ public:
 
     FIXEDPOINT_INLINE FixedPoint operator*(const FixedPoint& right_) const
     {
-        return FixedPoint(fixed_mul(value, right_.value));
+        return FixedPoint(FIXED_MUL(Tfixed_t, Tfracbits, Tenclosingtype_t, value, right_.value));
     }
 
     FIXEDPOINT_INLINE FixedPoint operator/(const FixedPoint& right_) const
     {
-        return FixedPoint(fixed_div(value, right_.value));
+        return FixedPoint(FIXED_DIV(Tfixed_t, Tfracbits, Tenclosingtype_t, value, right_.value));
     }
 
     /* <FixedPoint> <op>= <FixedPoint> */
@@ -104,13 +100,13 @@ public:
 
     FIXEDPOINT_INLINE FixedPoint& operator*=(const FixedPoint& right_)
     {
-        value = fixed_mul(value, right_.value);
+        value = FIXED_MUL(Tfixed_t, Tfracbits, Tenclosingtype_t, value, right_.value);
         return *this;
     }
 
     FIXEDPOINT_INLINE FixedPoint& operator/=(const FixedPoint& right_)
     {
-        value = fixed_div(value, right_.value);
+        value = FIXED_DIV(Tfixed_t, Tfracbits, Tenclosingtype_t, value, right_.value);
         return *this;
     }
 
@@ -146,7 +142,7 @@ public:
     }
 
     /* methods */
-    FIXEDPOINT_INLINE void setRawFixed(fixed_t val_)
+    FIXEDPOINT_INLINE void setRawFixed(Tfixed_t val_)
     {
         value = val_;
     }
@@ -158,31 +154,31 @@ public:
 
     FIXEDPOINT_INLINE void set(double val_)
     {
-        value = double_to_fixed(val_);
+        value = DOUBLE_TO_FIXED(Tfixed_t, Tfracbits, val_);
     }
 
     FIXEDPOINT_INLINE void set(int val_)
     {
-        value = int_to_fixed(val_);
+        value = INT_TO_FIXED(Tfixed_t, Tfracbits, Tenclosingtype_t, val_);
     }
 
-    FIXEDPOINT_INLINE fixed_t toRawFixed() const
+    FIXEDPOINT_INLINE Tfixed_t toRawFixed() const
     {
         return value;
     }
 
     FIXEDPOINT_INLINE double toDouble() const
     {
-        return fixed_to_double(value);
+        return FIXED_TO_DOUBLE(Tfixed_t, Tfracbits, value);
     }
 
     FIXEDPOINT_INLINE FixedPoint toAbs() const
     {
-        return FixedPoint(fixed_abs(value));
+        return FixedPoint(FIXED_ABS(Tfixed_t, value));
     }
 
 private:
-    fixed_t value;
+    Tfixed_t value;
 };
 
 #endif /* FIXED_FIXEDPOINT_PRIVATE_HPP_ */

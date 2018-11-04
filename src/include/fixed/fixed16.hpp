@@ -13,12 +13,8 @@ typedef
         FixedPoint
         <
         fixed16_t,
-        fixed16_abs,
-        fixed16_mul,
-        fixed16_div,
-        int_to_fixed16,
-        fixed16_to_double,
-        double_to_fixed16
+        8,
+        int32_t
         > Fixed16;
 
 #endif /* FIXED_FIXED16_HPP_ */
