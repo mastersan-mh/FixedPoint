@@ -1,57 +1,56 @@
 /**
  * @file fixed32.h
+ * @brief Export functions to manipulate fixedpoint numbers with 32 (16+16) bits width
  */
 
-#ifndef FIXED_FIXED32_H_
-#define FIXED_FIXED32_H_
+#ifndef NOSTD_FIXED_FIXED32_H_
+#define NOSTD_FIXED_FIXED32_H_
 
 #ifdef __cplusplus
 extern "C"
 {
 #endif
 
-#include "fixedpoint_private.h"
+#include <fixed/private/private.h>
+
 #include <stdint.h>
 
-#define FIXED32_BITS 32
 #define FIXED32_FRACBITS 16
-#define FIXED32_FRACUNIT ((int32_t)1 << FIXED32_FRACBITS)
 
 typedef int32_t fixed32_t;
 
-FIXEDPOINT_INLINE fixed32_t fixed32_abs(fixed32_t x)
+static FIXEDPOINT_INLINE fixed32_t fixed32_abs(fixed32_t x)
 {
-    fixed32_t sign = x >> (FIXED32_BITS - 1);
-    return (x ^ sign) - sign;
+    return FIXED_ABS(fixed32_t, x);
 }
 
-FIXEDPOINT_INLINE fixed32_t fixed32_mul(fixed32_t a, fixed32_t b)
+static FIXEDPOINT_INLINE fixed32_t fixed32_mul(fixed32_t a, fixed32_t b)
 {
-  return (fixed32_t)((int64_t)a * b >> FIXED32_FRACBITS);
+    return FIXED_MUL(fixed32_t, FIXED32_FRACBITS, int64_t, a, b);
 }
 
-FIXEDPOINT_INLINE fixed32_t fixed32_div(fixed32_t a, fixed32_t b)
+static FIXEDPOINT_INLINE fixed32_t fixed32_div(fixed32_t a, fixed32_t b)
 {
-  return (fixed32_t)( ((int64_t)a << FIXED32_FRACBITS) / b );
+    return FIXED_DIV(fixed32_t, FIXED32_FRACBITS, int64_t, a, b);
 }
 
-FIXEDPOINT_INLINE fixed32_t int_to_fixed32(int val)
+static FIXEDPOINT_INLINE fixed32_t int_to_fixed32(int val)
 {
-    return ((int64_t)val << FIXED32_FRACBITS);
+    return INT_TO_FIXED(fixed32_t, FIXED32_FRACBITS, int64_t, val);
 }
 
-FIXEDPOINT_INLINE fixed32_t double_to_fixed32(double val)
+static FIXEDPOINT_INLINE fixed32_t double_to_fixed32(double val)
 {
-    return (val * FIXED32_FRACUNIT);
+    return DOUBLE_TO_FIXED(fixed32_t, FIXED32_FRACBITS, val);
 }
 
-FIXEDPOINT_INLINE double fixed32_to_double(fixed32_t val)
+static FIXEDPOINT_INLINE double fixed32_to_double(fixed32_t val)
 {
-    return ((double)val / FIXED32_FRACUNIT);
+    return FIXED_TO_DOUBLE(fixed32_t, FIXED32_FRACBITS, val);
 }
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* FIXED_FIXED32_H_ */
+#endif /* NOSTD_FIXED_FIXED32_H_ */

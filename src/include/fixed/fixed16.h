@@ -1,57 +1,56 @@
 /**
  * @file fixed16.h
+ * @brief Export functions to manipulate fixedpoint numbers with 16 (8+8) bits width
  */
 
-#ifndef FIXED_FIXED16_H_
-#define FIXED_FIXED16_H_
+#ifndef NOSTD_FIXED_FIXED16_H_
+#define NOSTD_FIXED_FIXED16_H_
 
 #ifdef __cplusplus
 extern "C"
 {
 #endif
 
-#include "fixedpoint_private.h"
+#include <fixed/private/private.h>
+
 #include <stdint.h>
 
-#define FIXED16_BITS 16
 #define FIXED16_FRACBITS 8
-#define FIXED16_FRACUNIT ((int16_t)1 << FIXED16_FRACBITS)
 
 typedef int16_t fixed16_t;
 
-FIXEDPOINT_INLINE fixed16_t fixed16_abs(fixed16_t x)
+static FIXEDPOINT_INLINE fixed16_t fixed16_abs(fixed16_t x)
 {
-    fixed16_t sign = x >> (FIXED16_BITS - 1);
-    return (x ^ sign) - sign;
+    return FIXED_ABS(fixed16_t, x);
 }
 
-FIXEDPOINT_INLINE fixed16_t fixed16_mul(fixed16_t a, fixed16_t b)
+static FIXEDPOINT_INLINE fixed16_t fixed16_mul(fixed16_t a, fixed16_t b)
 {
-  return (fixed16_t)((int32_t)a * b >> FIXED16_FRACBITS);
+    return FIXED_MUL(fixed16_t, FIXED16_FRACBITS, int32_t, a, b);
 }
 
-FIXEDPOINT_INLINE fixed16_t fixed16_div(fixed16_t a, fixed16_t b)
+static FIXEDPOINT_INLINE fixed16_t fixed16_div(fixed16_t a, fixed16_t b)
 {
-  return (fixed16_t)( ((int32_t)a << FIXED16_FRACBITS) / b );
+    return FIXED_DIV(fixed16_t, FIXED16_FRACBITS, int32_t, a, b);
 }
 
-FIXEDPOINT_INLINE fixed16_t int_to_fixed16(int val)
+static FIXEDPOINT_INLINE fixed16_t int_to_fixed16(int val)
 {
-    return ((int32_t)val << FIXED16_FRACBITS);
+    return INT_TO_FIXED(fixed16_t, FIXED16_FRACBITS, int32_t, val);
 }
 
-FIXEDPOINT_INLINE fixed16_t double_to_fixed16(double val)
+static FIXEDPOINT_INLINE fixed16_t double_to_fixed16(double val)
 {
-    return (val * FIXED16_FRACUNIT);
+    return DOUBLE_TO_FIXED(fixed16_t, FIXED16_FRACBITS, val);
 }
 
-FIXEDPOINT_INLINE double fixed16_to_double(fixed16_t val)
+static FIXEDPOINT_INLINE double fixed16_to_double(fixed16_t val)
 {
-    return ((double)val / FIXED16_FRACUNIT);
+    return FIXED_TO_DOUBLE(fixed16_t, FIXED16_FRACBITS, val);
 }
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* FIXED_FIXED16_H_ */
+#endif /* NOSTD_FIXED_FIXED16_H_ */

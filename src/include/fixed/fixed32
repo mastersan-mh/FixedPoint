@@ -1,1 +1,6 @@
-#include "fixed32.hpp"
+/**
+ * @file fixed32.hpp
+ * @brief Export class to manipulate fixedpoint numbers with 32 (16+16) bits width
+ */
+
+#include <fixed/fixed32.hpp>
