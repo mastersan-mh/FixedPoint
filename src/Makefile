@@ -1,12 +1,9 @@
-################################################################################
-# Automatically-generated file. Do not edit!
-################################################################################
 
 CC := $(CROSS_COMPILE)gcc
 LD := $(CROSS_COMPILE)g++ -o
 RM := rm -f
 
-CFLAGS=-O0 -g3 -Wall
+CFLAGS=-O0 -g3 -Wall -I./include/
 
 SRCDIR := test
 

@@ -1,5 +1,6 @@
 /**
  * @file fixed16.h
+ * @brief Export functions to manipulate fixedpoint numbers with 16 (8+8) bits width
  */
 
 #ifndef FIXED_FIXED16_H_
@@ -10,7 +11,8 @@ extern "C"
 {
 #endif
 
-#include "fixedpoint_private.h"
+#include <fixed/private/private.h>
+
 #include <stdint.h>
 
 #define FIXED16_FRACBITS 8

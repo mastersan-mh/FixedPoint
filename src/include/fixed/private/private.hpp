@@ -2,10 +2,10 @@
  * fixedpoint_private.hpp
  */
 
-#ifndef FIXED_FIXEDPOINT_PRIVATE_HPP_
-#define FIXED_FIXEDPOINT_PRIVATE_HPP_
+#ifndef FIXED_PRIVATE_PRIVATE_HPP_
+#define FIXED_PRIVATE_PRIVATE_HPP_
 
-#include "fixedpoint_common.h"
+#include <fixed/private/common.h>
 
 namespace nostd
 {
@@ -186,4 +186,4 @@ private:
 
 }
 
-#endif /* FIXED_FIXEDPOINT_PRIVATE_HPP_ */
+#endif /* FIXED_PRIVATE_PRIVATE_HPP_ */

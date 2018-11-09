@@ -2,10 +2,10 @@
  * fixedpoint_private.h
  */
 
-#ifndef FIXED_FIXEDPOINT_PRIVATE_H_
-#define FIXED_FIXEDPOINT_PRIVATE_H_
+#ifndef FIXED_PRIVATE_PRIVATE_H_
+#define FIXED_PRIVATE_PRIVATE_H_
 
-#include "fixedpoint_common.h"
+#include <fixed/private/common.h>
 
 #define FIXED_FRACUNIT(xtype, xfracbits) \
     ( (xtype)1 << (xfracbits) )
@@ -31,4 +31,4 @@
 #define DOUBLE_TO_FIXED(xtype, xfracbits, xval) \
     ( (xtype)( (xval) * FIXED_FRACUNIT(xtype, xfracbits) ) )
 
-#endif /* FIXED_FIXEDPOINT_PRIVATE_H_ */
+#endif /* FIXED_PRIVATE_PRIVATE_H_ */

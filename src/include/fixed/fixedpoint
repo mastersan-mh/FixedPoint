@@ -1,1 +1,6 @@
-#include "fixedpoint_private.hpp"
+/**
+ * @file fixedpoint
+ * @brief Export template to manipulate fixedpoint numbers with arbitrary width
+ */
+ 
+#include <fixed/private/private.hpp>

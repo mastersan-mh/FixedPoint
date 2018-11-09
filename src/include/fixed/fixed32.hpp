@@ -1,13 +1,14 @@
 /**
  * @file fixed32.hpp
+ * @brief Export class to manipulate fixedpoint numbers with 32 (16+16) bits width
  */
 
 #ifndef FIXED_FIXED32_HPP_
 #define FIXED_FIXED32_HPP_
 
-#include "fixed32.h"
+#include <fixed/fixed32.h>
 
-#include "fixedpoint_private.hpp"
+#include <fixed/private/private.hpp>
 
 namespace nostd
 {

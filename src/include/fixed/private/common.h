@@ -1,9 +1,9 @@
 /**
- * @file fixedpoint_common.h
+ * @file common.h
  */
 
-#ifndef FIXED_FIXEDPOINT_COMMON_H_
-#define FIXED_FIXEDPOINT_COMMON_H_
+#ifndef FIXED_PRIVATE_COMMON_H_
+#define FIXED_PRIVATE_COMMON_H_
 
 #if !defined(__cplusplus)
 
@@ -37,4 +37,4 @@
 #endif
 
 
-#endif /* FIXED_FIXEDPOINT_COMMON_H_ */
+#endif /* FIXED_PRIVATE_COMMON_H_ */
