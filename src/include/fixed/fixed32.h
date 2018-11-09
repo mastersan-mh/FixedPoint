@@ -3,8 +3,8 @@
  * @brief Export functions to manipulate fixedpoint numbers with 32 (16+16) bits width
  */
 
-#ifndef FIXED_FIXED32_H_
-#define FIXED_FIXED32_H_
+#ifndef NOSTD_FIXED_FIXED32_H_
+#define NOSTD_FIXED_FIXED32_H_
 
 #ifdef __cplusplus
 extern "C"
@@ -53,4 +53,4 @@ static FIXEDPOINT_INLINE double fixed32_to_double(fixed32_t val)
 }
 #endif
 
-#endif /* FIXED_FIXED32_H_ */
+#endif /* NOSTD_FIXED_FIXED32_H_ */

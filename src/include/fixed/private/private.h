@@ -1,9 +1,9 @@
 /**
- * fixedpoint_private.h
+ * @file private.h
  */
 
-#ifndef FIXED_PRIVATE_PRIVATE_H_
-#define FIXED_PRIVATE_PRIVATE_H_
+#ifndef NOSTD_FIXED_PRIVATE_PRIVATE_H_
+#define NOSTD_FIXED_PRIVATE_PRIVATE_H_
 
 #include <fixed/private/common.h>
 
@@ -31,4 +31,4 @@
 #define DOUBLE_TO_FIXED(xtype, xfracbits, xval) \
     ( (xtype)( (xval) * FIXED_FRACUNIT(xtype, xfracbits) ) )
 
-#endif /* FIXED_PRIVATE_PRIVATE_H_ */
+#endif /* NOSTD_FIXED_PRIVATE_PRIVATE_H_ */

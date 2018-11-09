@@ -2,8 +2,8 @@
  * @file common.h
  */
 
-#ifndef FIXED_PRIVATE_COMMON_H_
-#define FIXED_PRIVATE_COMMON_H_
+#ifndef NOSTD_FIXED_PRIVATE_COMMON_H_
+#define NOSTD_FIXED_PRIVATE_COMMON_H_
 
 #if !defined(__cplusplus)
 
@@ -37,4 +37,4 @@
 #endif
 
 
-#endif /* FIXED_PRIVATE_COMMON_H_ */
+#endif /* NOSTD_FIXED_PRIVATE_COMMON_H_ */

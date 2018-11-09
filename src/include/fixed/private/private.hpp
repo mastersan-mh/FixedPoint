@@ -1,9 +1,9 @@
 /**
- * fixedpoint_private.hpp
+ * @file private.hpp
  */
 
-#ifndef FIXED_PRIVATE_PRIVATE_HPP_
-#define FIXED_PRIVATE_PRIVATE_HPP_
+#ifndef NOSTD_FIXED_PRIVATE_PRIVATE_HPP_
+#define NOSTD_FIXED_PRIVATE_PRIVATE_HPP_
 
 #include <fixed/private/common.h>
 
@@ -186,4 +186,4 @@ private:
 
 }
 
-#endif /* FIXED_PRIVATE_PRIVATE_HPP_ */
+#endif /* NOSTD_FIXED_PRIVATE_PRIVATE_HPP_ */

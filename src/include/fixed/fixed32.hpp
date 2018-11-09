@@ -3,8 +3,8 @@
  * @brief Export class to manipulate fixedpoint numbers with 32 (16+16) bits width
  */
 
-#ifndef FIXED_FIXED32_HPP_
-#define FIXED_FIXED32_HPP_
+#ifndef NOSTD_FIXED_FIXED32_HPP_
+#define NOSTD_FIXED_FIXED32_HPP_
 
 #include <fixed/fixed32.h>
 
@@ -23,4 +23,4 @@ typedef
 
 }
 
-#endif /* FIXED_FIXED32_HPP_ */
+#endif /* NOSTD_FIXED_FIXED32_HPP_ */

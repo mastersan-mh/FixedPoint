@@ -12,7 +12,7 @@
 
 #include <stdlib.h>
 
-size_t itest = 0;
+TEST_GLOBAL();
 
 int main()
 {
@@ -48,7 +48,7 @@ int main()
     test_double_to_Fixed32();
     test_Fixed32_to_double();
 
-    INFO("[  OK   ] ALL TESTS PASSED!");
+    TEST_ALL_DONE();
 
     return EXIT_SUCCESS;
 }
