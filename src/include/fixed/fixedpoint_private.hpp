@@ -7,6 +7,9 @@
 
 #include "fixedpoint_common.h"
 
+namespace nostd
+{
+
 template <
         typename Tfixed_t,
         unsigned char Tfracbits,
@@ -180,5 +183,7 @@ public:
 private:
     Tfixed_t value;
 };
+
+}
 
 #endif /* FIXED_FIXEDPOINT_PRIVATE_HPP_ */

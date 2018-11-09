@@ -11,8 +11,8 @@
  */
 void test_Fixed32_abs()
 {
-    Fixed32 in1;
-    Fixed32 out1;
+    nostd::Fixed32 in1;
+    nostd::Fixed32 out1;
 
     in1.setRawFixed(0);
     out1 = in1.toAbs();
@@ -42,9 +42,9 @@ void test_Fixed32_abs()
 
 void test_Fixed32_mul()
 {
-    Fixed32 in1;
-    Fixed32 in2;
-    Fixed32 out1;
+    nostd::Fixed32 in1;
+    nostd::Fixed32 in2;
+    nostd::Fixed32 out1;
 
     in1.setRawFixed(0);
     in2.setRawFixed(0);
@@ -90,8 +90,8 @@ void test_Fixed32_mul()
 
 void test_Fixed32_mul_self()
 {
-    Fixed32 inout1;
-    Fixed32 in1;
+    nostd::Fixed32 inout1;
+    nostd::Fixed32 in1;
 
     inout1.setRawFixed(0);
     in1.setRawFixed(0);
@@ -137,9 +137,9 @@ void test_Fixed32_mul_self()
 
 void test_Fixed32_div()
 {
-    Fixed32 in1;
-    Fixed32 in2;
-    Fixed32 out1;
+    nostd::Fixed32 in1;
+    nostd::Fixed32 in2;
+    nostd::Fixed32 out1;
 
     in1.setRawFixed(0x00000000);
     in2.setRawFixed(0x00010000);
@@ -185,8 +185,8 @@ void test_Fixed32_div()
 
 void test_Fixed32_div_self()
 {
-    Fixed32 inout1;
-    Fixed32 in1;
+    nostd::Fixed32 inout1;
+    nostd::Fixed32 in1;
 
     inout1.setRawFixed(0x00000000);
     in1.setRawFixed(0x00010000);
@@ -233,7 +233,7 @@ void test_Fixed32_div_self()
 void test_int_to_Fixed32()
 {
     int in1;
-    Fixed32 out1;
+    nostd::Fixed32 out1;
 
     in1 = 0;
     out1 = int_to_fixed32(in1);
@@ -268,7 +268,7 @@ void test_int_to_Fixed32()
 void test_double_to_Fixed32()
 {
     double in1;
-    Fixed32 out1;
+    nostd::Fixed32 out1;
 
     in1 = 0.0;
     out1 = double_to_fixed32(in1);
@@ -310,7 +310,7 @@ void test_double_to_Fixed32()
 
 void test_Fixed32_to_double()
 {
-    Fixed32 in1;
+    nostd::Fixed32 in1;
     double out1;
 
     in1.setRawFixed(0);

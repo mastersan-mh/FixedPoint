@@ -8,8 +8,8 @@
 
 void test_Fixed16_abs()
 {
-    Fixed16 in1;
-    Fixed16 out1;
+    nostd::Fixed16 in1;
+    nostd::Fixed16 out1;
 
     in1.setRawFixed(0);
     out1 = in1.toAbs();
@@ -39,9 +39,9 @@ void test_Fixed16_abs()
 
 void test_Fixed16_mul()
 {
-    Fixed16 in1;
-    Fixed16 in2;
-    Fixed16 out1;
+    nostd::Fixed16 in1;
+    nostd::Fixed16 in2;
+    nostd::Fixed16 out1;
 
     in1.setRawFixed(0);
     in2.setRawFixed(0);
@@ -87,8 +87,8 @@ void test_Fixed16_mul()
 
 void test_Fixed16_mul_self()
 {
-    Fixed16 inout1;
-    Fixed16 in2;
+    nostd::Fixed16 inout1;
+    nostd::Fixed16 in2;
 
     inout1.setRawFixed(0);
     in2.setRawFixed(0);
@@ -134,9 +134,9 @@ void test_Fixed16_mul_self()
 
 void test_Fixed16_div()
 {
-    Fixed16 in1;
-    Fixed16 in2;
-    Fixed16 out1;
+    nostd::Fixed16 in1;
+    nostd::Fixed16 in2;
+    nostd::Fixed16 out1;
 
     in1.setRawFixed(0x0000);
     in2.setRawFixed(0x0100);
@@ -182,8 +182,8 @@ void test_Fixed16_div()
 
 void test_Fixed16_div_self()
 {
-    Fixed16 inout1;
-    Fixed16 in1;
+    nostd::Fixed16 inout1;
+    nostd::Fixed16 in1;
 
     inout1.setRawFixed(0x0000);
     in1.setRawFixed(0x0100);
@@ -230,7 +230,7 @@ void test_Fixed16_div_self()
 void test_int_to_Fixed16()
 {
     int in1;
-    Fixed16 out1;
+    nostd::Fixed16 out1;
 
     in1 = 0;
     out1.set(in1);
@@ -265,7 +265,7 @@ void test_int_to_Fixed16()
 void test_double_to_Fixed16()
 {
     double in1;
-    Fixed16 out1;
+    nostd::Fixed16 out1;
 
     in1 = 0.0;
     out1.set(in1);
@@ -307,7 +307,7 @@ void test_double_to_Fixed16()
 
 void test_Fixed16_to_double()
 {
-    Fixed16 in1;
+    nostd::Fixed16 in1;
     double out1;
 
     in1.setRawFixed(0);

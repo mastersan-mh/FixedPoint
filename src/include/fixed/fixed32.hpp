@@ -9,6 +9,9 @@
 
 #include "fixedpoint_private.hpp"
 
+namespace nostd
+{
+
 typedef
         FixedPoint
         <
@@ -16,5 +19,7 @@ typedef
         16,
         int64_t
         > Fixed32;
+
+}
 
 #endif /* FIXED_FIXED32_HPP_ */
