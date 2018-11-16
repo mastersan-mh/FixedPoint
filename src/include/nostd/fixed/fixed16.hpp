@@ -6,9 +6,9 @@
 #ifndef NOSTD_FIXED_FIXED16_HPP_
 #define NOSTD_FIXED_FIXED16_HPP_
 
-#include <fixed/fixed16.h>
+#include <nostd/fixed/fixed16.h>
 
-#include <fixed/private/private.hpp>
+#include <nostd/fixed/fixedpoint>
 
 namespace nostd
 {

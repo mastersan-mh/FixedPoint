@@ -11,7 +11,7 @@ extern "C"
 {
 #endif
 
-#include <fixed/private/private.h>
+#include <nostd/fixed/fixedpoint.h>
 
 #include <stdint.h>
 

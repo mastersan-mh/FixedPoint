@@ -5,7 +5,8 @@
 #ifndef NOSTD_FIXED_PRIVATE_PRIVATE_HPP_
 #define NOSTD_FIXED_PRIVATE_PRIVATE_HPP_
 
-#include <fixed/private/common.h>
+#include <nostd/fixed/private/common.h>
+#include <nostd/fixed/private/private.h>
 
 namespace nostd
 {
