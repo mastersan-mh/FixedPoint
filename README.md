@@ -1,5 +1,7 @@
 # FixedPoint
 
+A library to operate fixedpoint numbers.
+
 ## Development Goals ##
 1. Accelerate the processing of real numbers on controllers without hardware support for IEEE 754 and the like.
 2. Simplify program development.
