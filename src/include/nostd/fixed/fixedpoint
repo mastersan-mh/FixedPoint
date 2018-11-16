@@ -3,4 +3,4 @@
  * @brief Export template to manipulate fixedpoint numbers with arbitrary width
  */
  
-#include <fixed/private/private.hpp>
+#include <nostd/fixed/fixedpoint.hpp>

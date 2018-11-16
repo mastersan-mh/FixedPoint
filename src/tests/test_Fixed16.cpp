@@ -4,7 +4,7 @@
 
 #include "common.h"
 
-#include "../include/fixed/fixed16"
+#include "../include/nostd/fixed/fixed16"
 
 void test_Fixed16_abs()
 {

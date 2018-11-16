@@ -4,7 +4,7 @@
 
 #include "common.h"
 
-#include "../include/fixed/fixed16.h"
+#include <nostd/fixed/fixed16.h>
 
 /**
  * fixed16

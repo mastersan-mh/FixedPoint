@@ -4,7 +4,7 @@
 
 #include "common.h"
 
-#include "../include/fixed/fixed32.h"
+#include <nostd/fixed/fixed32.h>
 
 /**
  * fixed32

@@ -5,7 +5,7 @@
 #ifndef NOSTD_FIXED_PRIVATE_PRIVATE_H_
 #define NOSTD_FIXED_PRIVATE_PRIVATE_H_
 
-#include <fixed/private/common.h>
+#include <nostd/fixed/private/common.h>
 
 #define FIXED_FRACUNIT(xtype, xfracbits) \
     ( (xtype)1 << (xfracbits) )
