@@ -19,12 +19,11 @@ template <
 class FixedPoint
 {
 public:
-    FIXEDPOINT_INLINE FixedPoint():
-    value(0)
+    FIXEDPOINT_INLINE FixedPoint(): value(0)
     {
     }
 
-    FIXEDPOINT_INLINE FixedPoint(const FixedPoint & other_) : value(other_.value)
+    FIXEDPOINT_INLINE FixedPoint(const FixedPoint & other_): value(other_.value)
     {
     }
 
@@ -115,7 +114,7 @@ public:
     }
 
     /* <FixedPoint> <eq-op> <FixedPoint> */
-    FIXEDPOINT_INLINE bool operator==(const FixedPoint& right_)
+    FIXEDPOINT_INLINE bool operator==(const FixedPoint& right_) const
     {
         return value == right_.value;
     }
