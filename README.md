@@ -22,16 +22,51 @@ This library is mainly intended for use on controllers, such as atmega, since fl
 * Work with fixed16 / fixed32
 * Addition
 
-  C++ only. For C, use the normal '+' operator
+    C++ only. For C, use the normal '+' operator
      
 * Subtraction
 
-  C++ only. For C, use the normal '-' operator
+    C++ only. For C, use the normal '-' operator
      
 * Multiplication
 * Division
+* Getting absolute value
 * Conversion double -> fixed
 * Conversion fixed -> double
+
+## The Makefile usage ##
+
+* make all
+
+    Default target, see make install
+
+* make install
+
+    ```make install```
+
+    Install to the default directory ```/usr/local/include```
+
+    ```make install prefix=<directory>```
+
+    Install to the your desired directory.
+
+* make uninstall
+
+    ```make uninstall```
+
+    Uninstall from the default directory ```/usr/local/include```
+
+    ```make uninstall prefix=<directory>```
+
+    Uninstall from the your desired directory.
+
+* make test
+
+    Build the test executable binary.
+
+* make clean
+
+    Erase the tests binary.
 
 ## P.S. ##
 Use it for your fun!
@@ -68,6 +103,7 @@ Use it for your fun!
     
 * Умножение
 * Деление
+* Получение абсолютного значения
 * Преобразование double -> fixed
 * Преобразование fixed -> double
 
