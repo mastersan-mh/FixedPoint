@@ -48,7 +48,7 @@ OBJS := \
 
 .PHONY: all install uninstall test clean
 
-all: install
+all: test check install
 
 install:
 	$(CP) -r ${PROJ_INCLUDEDIR}/* ${INCLUDEDIR}
@@ -58,6 +58,9 @@ uninstall:
 	-$(RMDIR) ${INCLUDEDIR}/nostd
 
 test: $(EXECUTABLE)
+
+check:
+	$(EXECUTABLE)
 
 $(EXECUTABLE): $(BUILDDIR) $(PROJ_HEADERS) $(OBJS)
 	$(LD) $(EXECUTABLE) $(OBJS) $(LIBS)

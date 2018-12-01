@@ -11,6 +11,11 @@
 namespace nostd
 {
 
+/**
+ * @param Tfixed_t              Container scalar type.
+ * @param Tfracbits             Number of bits in fractional part.
+ * @param Tenclosingtype_t      Enclosing scalar type in mul/div operations to save the precision. Desirable, should be wider than Tfixed_t.
+ */
 template <
         typename Tfixed_t,
         unsigned char Tfracbits,
