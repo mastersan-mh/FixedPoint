@@ -11,9 +11,13 @@
 #       define FIXEDPOINT_STD_HAVE_INLINE
 #   endif
 
+#define FIXEDPOINT_C_NOEXCEPT
+
 #else
 
 #   define FIXEDPOINT_STD_HAVE_INLINE
+
+#define FIXEDPOINT_C_NOEXCEPT noexcept
 
 #endif
 
