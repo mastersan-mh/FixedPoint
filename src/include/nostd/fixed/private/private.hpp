@@ -11,6 +11,11 @@
 namespace nostd
 {
 
+/**
+ * @param Tfixed_t              Container scalar type.
+ * @param Tfracbits             Number of bits in fractional part.
+ * @param Tenclosingtype_t      Enclosing scalar type in mul/div operations to save the precision. Desirable, should be wider than Tfixed_t.
+ */
 template <
         typename Tfixed_t,
         unsigned char Tfracbits,
@@ -19,12 +24,11 @@ template <
 class FixedPoint
 {
 public:
-    FIXEDPOINT_INLINE FixedPoint():
-    value(0)
+    FIXEDPOINT_INLINE FixedPoint(): value(0)
     {
     }
 
-    FIXEDPOINT_INLINE FixedPoint(const FixedPoint & other_) : value(other_.value)
+    FIXEDPOINT_INLINE FixedPoint(const FixedPoint & other_): value(other_.value)
     {
     }
 
@@ -115,7 +119,7 @@ public:
     }
 
     /* <FixedPoint> <eq-op> <FixedPoint> */
-    FIXEDPOINT_INLINE bool operator==(const FixedPoint& right_)
+    FIXEDPOINT_INLINE bool operator==(const FixedPoint& right_) const
     {
         return value == right_.value;
     }

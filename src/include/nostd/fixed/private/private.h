@@ -7,6 +7,12 @@
 
 #include <nostd/fixed/private/common.h>
 
+/**
+ * @param xtype                 Container scalar type.
+ * @param xfracbits             Number of bits in fractional part.
+ * @param xenclosingtype        Enclosing scalar type in mul/div operations to save the precision. Desirable, should be wider than Tfixed_t.
+ */
+
 #define FIXED_FRACUNIT(xtype, xfracbits) \
     ( (xtype)1 << (xfracbits) )
 
